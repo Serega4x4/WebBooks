@@ -91,7 +91,7 @@ class Status(models.Model):
         return self.name
 
 
-class BookInstans(models.Model):
+class BookInstance(models.Model):
     book = models.ForeignKey('Book', on_delete=models.CASCADE, null=True)
     inv_nom = models.CharField(max_length=20, null=True, help_text='Введите инвентарный номер экземпляра',
                                verbose_name='Статус экземпляра книги')
