@@ -104,5 +104,5 @@ class BookInstance(models.Model):
     class Meta:
         ordering = ['due_back']
 
-        def __str__(self):
-            return '%s %s %s % (self.inv_nom, self.book, self.status)'
+    def __str__(self):
+        return '%s %s %s' % (self.inv_nom, self.book, self.status)
