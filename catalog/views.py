@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Book, Author, BookInstance
+from django.views.generic import ListView
 
 
 def index(request):
@@ -18,3 +19,8 @@ def index(request):
                 'authors': authors, 'num_authors': num_authors}
 
     return render(request, 'catalog/index.html', context)
+
+
+class BookListView(ListView):
+    model = Book
+    context_object_name = 'books'
