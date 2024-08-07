@@ -46,12 +46,28 @@
             <div class="row text-center">
                 {% block content %}
                 {% endblock content %}
+                <div class="paginator">
+                    <span class="step-links">
+                        {% if page_obj.paginator.num_pages %}
+                            {% if page_obj.has_previous %}
+                                <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                            {% endif %}
+                            <span class="current">
+                                Стр. {{ page_obj.number }} из {{ page_obj.paginator.num_pages}},
+                            </span>
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                                <a href="?page={{ page_obj.paginator.num_pages }}">Предыдущая &raquo;</a>
+                            {% endif %}
+                        {% endif %}
+                    </span>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <div class="container-fluid">
-    <div class="row bg-primary text-center text-white ih-1">
+    <div class="row bg-info text-center text-dark small lh-sm pt-2 my-2">
         {% block footer %}
         <p>Это подвал (footer) всех страниц айта</p>
         {% endblock footer %}
